@@ -13,7 +13,7 @@ class SageSlugConfig:
     CONFIG_PREFIX = "SAGESLUG_"
 
     def __init__(self) -> None:
-        self.debug = self.get_setting(f"{self.CONFIG_PREFIX}TYPE_MAPPING", {
+        self.slug_type_mapping = self.get_setting(f"{self.CONFIG_PREFIX}TYPE_MAPPING", {
         'product_slug': 'product',
         'category_slug': 'category',
         'post_slug': 'post',
