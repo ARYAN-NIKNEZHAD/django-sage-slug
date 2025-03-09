@@ -9,6 +9,7 @@ from django.utils.deprecation import MiddlewareMixin
 
 from sage_slug.helpers.enums import RedirectType
 from sage_slug.models import SlugSwap
+from sage_slug.settings.conf import sageslug_config
 
 logger = logging.getLogger(__name__)
 
@@ -28,7 +29,7 @@ class OldSlugRedirectMiddleware(MiddlewareMixin):
     def __init__(self, get_response):
         self.get_response = get_response
         super().__init__(get_response)
-        self.slug_type_mapping = getattr(settings, "SLUG_TYPE_MAPPING", {})
+        self.slug_type_mapping = sageslug_config.slug_type_mapping
 
     def process_response(self, request, response):
         """
